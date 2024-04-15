@@ -43,6 +43,7 @@ TOTAL: $1.99
         register.scan(Item(name: "Beans (8oz Can)", priceEach: 199))
         register.scan(Item(name: "Beans (8oz Can)", priceEach: 199))
         XCTAssertEqual(199 * 3, register.subtotal())
+        print(register.subtotal())
     }
     
     func testThreeDifferentItems() {
@@ -65,5 +66,12 @@ Granols Bars (Box, 8ct): $4.99
 TOTAL: $7.97
 """
         XCTAssertEqual(expectedReceipt, receipt.output())
+    }
+    
+    // My User Tests Below
+    func testSingleItemRegister() {
+        register.scan(Item(name: "Pencil", priceEach: 99))
+        XCTAssertEqual(99, register.subtotal())
+        
     }
 }
